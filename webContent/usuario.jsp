@@ -63,6 +63,7 @@
 					<fieldset class="form-group">
 						<label>Pass de Usuario</label><input class="form-control" name="pass" type="text" value="<c:out value='${usuario.pass}'/>" />
 					</fieldset>
+					<br><br>
 					<button type="submit" class="btn btn-success">Guardar</button>
 					</form>
 				</div>

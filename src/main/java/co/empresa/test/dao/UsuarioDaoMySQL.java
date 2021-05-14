@@ -6,19 +6,19 @@ import java.util.*;
 import com.sun.net.httpserver.Authenticator.Result;
 
 import co.empresa.test.modelo.Usuario;
-import co.empresa.tst.util.Conexion;
+import co.empresa.tst.util.ConexionMySQL;
 
-public class UsuarioDao {
-	private Conexion conexion;
+public class UsuarioDaoMySQL implements UsuarioDao {
+	private ConexionMySQL conexion;
 	private static final String insertarUsuarioSQL = "INSERT INTO usuario(nombre, email, pass) VALUES (?, ?, ?)";
 	private static final String eliminarUsuarioSQL = "DELETE FROM usuario id=?";
 	private static final String actualizarUsuarioSQL = "UPDATE usuario SET nombre=?, email=?,pass=? WHERE id=?";
 	private static final String buscarUsuarioId = "SELECT * FROM usuarioWHERE id=?";
 	private static final String buscarUsuarios = "SELECT * FROM usuario";
 
-	public UsuarioDao() {
+	public UsuarioDaoMySQL() {
 		super();
-		this.conexion = conexion.getConexion();
+		this.conexion = ConexionMySQL.getConexion();
 	}
 
 	public void insertarUsuario(Usuario usuario) throws SQLException {

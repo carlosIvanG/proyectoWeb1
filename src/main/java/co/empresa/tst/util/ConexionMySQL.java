@@ -2,9 +2,9 @@ package co.empresa.tst.util;
 
 import java.sql.*;
 
-public class Conexion {
+public class ConexionMySQL {
 	private Connection con = null;
-	private static Conexion db;
+	private static ConexionMySQL db;
 	private PreparedStatement preparedStatement;
 
 	private static final String url = "jdbc:mysql://localhost:3306/";
@@ -13,10 +13,10 @@ public class Conexion {
 	private static final String userName = "root";
 	private static final String password = "";
 
-	public Conexion() {
+	public ConexionMySQL() {
 		try {
 			Class.forName(driver).newInstance();
-			con = DriverManager.getConnection(url + dbName, userName, password);
+			con = (Connection)DriverManager.getConnection(url + dbName, userName, password);
 
 		} catch (InstantiationException e) {
 			e.printStackTrace();
@@ -43,9 +43,9 @@ public class Conexion {
 		}
 	}
 
-	public static Conexion getConexion() {
+	public static ConexionMySQL getConexion() {
 		if (db == null)
-			db = new Conexion();
+			db = new ConexionMySQL();
 		return db;
 	}
 
