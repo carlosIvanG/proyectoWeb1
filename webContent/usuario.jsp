@@ -58,7 +58,7 @@
 						<label>Nombre de Usuario</label><input class="form-control" name="nombre" required="required" type="text" value="<c:out value='${usuario.nombre}'/>" />
 					</fieldset>
 					<fieldset class="form-group">
-						<label>Email de Usuario</label><input class="form-control" name="email" type="text" value="<c:out value='${usuario.email}'/>" />
+						<label>Email de Usuario</label><input class="form-control" name="email" type="email" pattern=".+@ufps.edu.co" value="<c:out value='${usuario.email}'/>" />
 					</fieldset>
 					<fieldset class="form-group">
 						<label>Pass de Usuario</label><input class="form-control" name="pass" type="text" value="<c:out value='${usuario.pass}'/>" />

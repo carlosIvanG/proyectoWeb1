@@ -17,6 +17,7 @@ import co.empresa.test.dao.UsuarioDaoFactory;
 import co.empresa.test.dao.UsuarioDaoMySQL;
 import co.empresa.test.dao.UsuarioDaoPostgreSQL;
 import co.empresa.test.modelo.Usuario;
+import co.empresa.tst.util.ServicioEmail;
 
 /**
  * Servlet implementation class UsuarioServlet
@@ -104,6 +105,8 @@ public class UsuarioServlet extends HttpServlet {
 
 		Usuario usuario = new Usuario(nombre, email, pass);
 		usuarioDao.insertarUsuario(usuario);
+		ServicioEmail servicioEmail= new ServicioEmail("carlosivangc@ufps.edu.co", "znfxogobzgrguwcp");
+		servicioEmail.enviarEmail(email, "Datos Formulario", usuario.toString());
 		response.sendRedirect("list");
 	}
 
